@@ -7,7 +7,8 @@
 <title>Personal Training Diary</title>
 </head>
 <body>
-
+You are logged as: ${loggedInPersonalTrainer.name} ${loggedInPersonalTrainer.surname}
+<a href="${pageContext.request.contextPath}/logout">Logout</a>
 	<h1>Personal Training Diary</h1>
 	<p>
 		<a href="${pageContext.request.contextPath}/login">Login</a> <a
