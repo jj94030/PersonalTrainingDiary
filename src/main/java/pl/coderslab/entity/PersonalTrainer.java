@@ -1,10 +1,15 @@
 package pl.coderslab.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Email;
@@ -22,18 +27,21 @@ public class PersonalTrainer {
 	@NotEmpty
 	private String surname;
 	@NotNull
-	private int phoneNumber;
+	private Integer phoneNumber;
 	private String description;
 	@Email
 	@Column(unique = true)
 	private String email;
 	@NotEmpty
 	private String password;
+
+	@OneToMany(mappedBy = "personalTrainer",fetch=FetchType.EAGER)
+	private List<Client> clients = new ArrayList<>();
 	
-	public PersonalTrainer() {}
-	
+	public PersonalTrainer() {
+	}
+
 	public PersonalTrainer(String name, String surname, int phoneNumber, String email, String password) {
-		super();
 		this.name = name;
 		this.surname = surname;
 		this.phoneNumber = phoneNumber;
@@ -65,11 +73,11 @@ public class PersonalTrainer {
 		this.surname = surname;
 	}
 
-	public int getPhoneNumber() {
+	public Integer getPhoneNumber() {
 		return phoneNumber;
 	}
 
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(Integer phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 
@@ -96,9 +104,19 @@ public class PersonalTrainer {
 	public void setPassword(String password) {
 		this.password = BCrypt.hashpw(password, BCrypt.gensalt());
 	}
-	
+
 	public boolean isPasswordCorrect(String password) {
 		return BCrypt.checkpw(password, this.password);
 	}
+
 	
+	
+	
+	public List<Client> getClients() {
+		return clients;
+	}
+
+	public void setClients(List<Client> clients) {
+		this.clients = clients;
+	}
 }

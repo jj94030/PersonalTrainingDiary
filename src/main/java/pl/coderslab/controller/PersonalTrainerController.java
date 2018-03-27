@@ -17,46 +17,58 @@ import pl.coderslab.model.PersonalTrainerDTO;
 import pl.coderslab.repository.PersonalTrainerRepository;
 
 @Controller
-@SessionAttributes({"loggedInPersonalTrainer"})
+@SessionAttributes({ "loggedInPersonalTrainer" })
 public class PersonalTrainerController {
 
 	@Autowired
 	PersonalTrainerRepository personalTrainerRepo;
-	
-// register ---------------------------------------------------------------------------------	
+
+	// register
 	@GetMapping("/register")
-	public String registerPersonalTrainer(Model model){
+	public String registerPersonalTrainer(Model model) {
 		model.addAttribute("personalTrainer", new PersonalTrainer());
 		return "registerPersonalTrainerForm";
 	}
-	
+
 	@PostMapping("/register")
-	public String registerPersonalTrainerPost(@Valid @ModelAttribute PersonalTrainer personalTrainer, BindingResult bindingResult){
-		personalTrainerRepo.save(personalTrainer);
+	public String registerPersonalTrainerPost(@Valid @ModelAttribute PersonalTrainer personalTrainer,
+			BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+			return "registerPersonalTrainerForm";
+		}
+		this.personalTrainerRepo.save(personalTrainer);
 		return "redirect:/";
 	}
-	
-// login ------------------------------------------------------------------------------------
+
+	// login
 	@GetMapping("/login")
-	public String loginPersonalTrainer(Model model){
+	public String loginPersonalTrainer(Model model) {
 		model.addAttribute("personalTrainerDTO", new PersonalTrainerDTO());
 		return "loginPersonalTrainerForm";
 	}
+
 	@PostMapping("/login")
-	public String loginPersonalTrainerPost(@Valid @ModelAttribute PersonalTrainerDTO personalTrainerDTO, BindingResult bindingResult, Model model){
-		PersonalTrainer personalTrainer = personalTrainerRepo.findOneByEmail(personalTrainerDTO.getEmail());
-		if(personalTrainer != null && personalTrainer.isPasswordCorrect(personalTrainerDTO.getPassword())){
+	public String loginPersonalTrainerPost(@Valid @ModelAttribute PersonalTrainerDTO personalTrainerDTO,
+			BindingResult bindingResult, Model model) {
+		PersonalTrainer personalTrainer = this.personalTrainerRepo.findOneByEmail(personalTrainerDTO.getEmail());
+		if (personalTrainer != null && personalTrainer.isPasswordCorrect(personalTrainerDTO.getPassword())) {
 			model.addAttribute("loggedInPersonalTrainer", personalTrainer);
 			return "redirect:/";
 		}
 		return "redirect:/";
 	}
-// logout ----------------------------------------------------------------------------------------	
+
+	// main page
+	@GetMapping("")
+	public String mainPage() {
+		return "mainPage";
+	}
+
+	// logout
 	@GetMapping("/logout")
-	public String logoutPersonalTrainer(SessionStatus sessionStatus){
+	public String logoutPersonalTrainer(SessionStatus sessionStatus) {
 		sessionStatus.setComplete();
 		return "redirect:/";
 	}
-	
-	
+
 }

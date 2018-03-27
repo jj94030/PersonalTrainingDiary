@@ -11,6 +11,7 @@
 
 
 	<form:form method="POST" modelAttribute="personalTrainerDTO">
+		
 		<div>
 			<form:input type="email" path="email" placeholder="E-mail" />
 			<form:errors path="email"></form:errors>

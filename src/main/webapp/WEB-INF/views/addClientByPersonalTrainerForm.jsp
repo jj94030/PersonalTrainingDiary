@@ -9,7 +9,8 @@
 </head>
 <body>
 
-	<form:form method="POST" modelAttribute="personalTrainer">
+
+	<form:form method="POST" modelAttribute="client">
 		<div>
 			<form:input path="name" placeholder="Name" />
 			<form:errors path="name"></form:errors>
@@ -31,17 +32,32 @@
 		</div>
 		<br>
 		<div>
-			<form:password path="password" placeholder="PASSWORD" />
-			<form:errors path="password"></form:errors>
+			<form:select path="gym">
+				<option value="">---Select gym---</option>
+				<option>Fitness Platinium Bratyslawska</option>
+				<option>Fitness Platinium Mogilska</option>
+				<option>Fitness Platinium Plaza</option>
+				<option>Fitness Platinium Salwator</option>
+				<option>Pure Jatomi Fitness Kazimierz</option>
+				<option>Pure Jatomi Fitness Angel City</option>
+				<option>other</option>
+			</form:select>
+		</div>
+		<br>
+		<div>
+			<form:select path="goal">
+				<option value="">---Select goal---</option>
+				<option>masa</option>
+				<option>rzezba</option>
+				<option>redukcja</option>
+				<option>other</option>
+			</form:select>
 		</div>
 		<br>
 		<div>
 			<input type="submit" />
 		</div>
 	</form:form>
-
-
-
 
 </body>
 </html>
