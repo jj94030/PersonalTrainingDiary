@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%@ include file="jspf/header.jspf" %>
+	<%@ include file="jspf/header.jspf"%>
 
 	<form:form method="POST" modelAttribute="client">
 		<div>
@@ -52,6 +52,10 @@
 				<option>redukcja</option>
 				<option>other</option>
 			</form:select>
+		</div>
+		<br>
+		<div>
+			<form:select path="daysOfTraining" items="${daysOfWeek}" multiple="true" />
 		</div>
 		<br>
 		<div>

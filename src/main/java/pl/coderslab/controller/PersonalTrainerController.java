@@ -63,6 +63,23 @@ public class PersonalTrainerController {
 	public String mainPage() {
 		return "mainPage";
 	}
+	
+//	// edit profile
+//	@GetMapping("/edit")
+//	public String editPersonalTrainerProfile(Model model, HttpSession session) {
+//		PersonalTrainer personalTrainer = (PersonalTrainer) session.getAttribute("loggedInPersonalTrainer");
+//		model.addAttribute("personalTrainer", personalTrainer);
+//		return "editTrainerProfileForm";
+//	}
+//	@PostMapping("/edit")
+//	public String editPersonalTrainerProfilePost(@Valid @ModelAttribute PersonalTrainer personalTrainer,
+//			BindingResult bindingResult, Model model) {
+//		if (bindingResult.hasErrors()) {
+//			return "editTrainerProfileForm";
+//		}
+//		this.personalTrainerRepo.save(personalTrainer);
+//		return "redirect:/";
+//	}
 
 	// logout
 	@GetMapping("/logout")

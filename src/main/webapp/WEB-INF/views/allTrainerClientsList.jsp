@@ -8,13 +8,26 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%@ include file="jspf/header.jspf" %>
+	<%@ include file="jspf/header.jspf"%>
 	<ul>
 		<c:forEach items="${clients}" var="client">
-			<li>${client.name} ${client.surname}</li>
+			<li>${client.name} ${client.surname} | ${client.email} |
+				${client.phoneNumber} | ${client.goal} | ${client.gym} | 
+				
+				<c:forEach items="${client.daysOfTraining}" var="dayOfWeek">
+					${dayOfWeek}
+				</c:forEach>
+				
+				<a href="${pageContext.request.contextPath}/editClient/${client.id}"
+				role="button">Edit</a> <a
+				href="${pageContext.request.contextPath}/deleteClient/${client.id}"
+				role="button">Delete</a>
+
+			</li>
 		</c:forEach>
 	</ul>
 
-<a href="${pageContext.request.contextPath}">MAIN</a>
+	<a href="${pageContext.request.contextPath}/addClient">Add new
+		Client</a>
 </body>
 </html>

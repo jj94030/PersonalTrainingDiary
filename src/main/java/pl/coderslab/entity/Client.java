@@ -22,7 +22,6 @@ public class Client {
 	private String name;
 	@NotEmpty
 	private String surname;
-	
 	@Email
 	@Column(unique = true)
 	private String email;
@@ -30,6 +29,7 @@ public class Client {
 	private Integer phoneNumber;
 	private String goal;
 	private String gym;
+	private String[] daysOfTraining; 
 	
 	@ManyToOne
 	@JoinColumn(name="personalTrainer_id")
@@ -79,9 +79,16 @@ public class Client {
 	public void setGym(String gym) {
 		this.gym = gym;
 	}
+	public String[] getDaysOfTraining() {
+		return daysOfTraining;
+	}
 
+	public void setDaysOfTraining(String[] daysOfTraining) {
+		this.daysOfTraining = daysOfTraining;
+	}
 	
 	
+
 	public PersonalTrainer getPersonalTrainer() {
 		return personalTrainer;
 	}
@@ -89,6 +96,7 @@ public class Client {
 	public void setPersonalTrainer(PersonalTrainer personalTrainer) {
 		this.personalTrainer = personalTrainer;
 	}
+
 	
 	
 	
