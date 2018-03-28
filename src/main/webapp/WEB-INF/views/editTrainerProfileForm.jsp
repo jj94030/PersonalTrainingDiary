@@ -8,9 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%@ include file="jspf/header.jspf" %>
-
-	<form:form method="POST" modelAttribute="client">
+	<%@ include file="jspf/header.jspf"%>
+	<form:form method="POST" modelAttribute="personalTrainer">
 		<div>
 			<form:input path="name" placeholder="Name" />
 			<form:errors path="name"></form:errors>
@@ -32,26 +31,13 @@
 		</div>
 		<br>
 		<div>
-			<form:select path="gym">
-				<option value="">---Select gym---</option>
-				<option>Fitness Platinium Bratyslawska</option>
-				<option>Fitness Platinium Mogilska</option>
-				<option>Fitness Platinium Plaza</option>
-				<option>Fitness Platinium Salwator</option>
-				<option>Pure Jatomi Fitness Kazimierz</option>
-				<option>Pure Jatomi Fitness Angel City</option>
-				<option>other</option>
-			</form:select>
+			<form:password path="password" placeholder="PASSWORD" />
+			<form:errors path="password"></form:errors>
 		</div>
 		<br>
 		<div>
-			<form:select path="goal">
-				<option value="">---Select goal---</option>
-				<option>masa</option>
-				<option>rzezba</option>
-				<option>redukcja</option>
-				<option>other</option>
-			</form:select>
+			<form:textarea path="description" placeholder="description" />
+			<form:errors path="description"></form:errors>
 		</div>
 		<br>
 		<div>
