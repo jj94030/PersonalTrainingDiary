@@ -49,7 +49,7 @@ public class ClientController {
 		PersonalTrainer trainer = (PersonalTrainer) session.getAttribute("loggedInPersonalTrainer");
 		client.setPersonalTrainer(trainer);
 		this.clientRepo.save(client);
-		return "redirect:/";
+		return "redirect:/clientsList";
 	}
 
 	// EDIT CLIENT:

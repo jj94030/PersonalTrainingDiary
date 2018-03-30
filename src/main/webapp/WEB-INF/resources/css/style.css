@@ -1,0 +1,31 @@
+.zdj{
+	width: 100%;
+	background-image: url("../img/fitness.jpg");
+	background-size:contain;
+	background-repeat: no-repeat;
+}
+
+ html, body {
+		margin:0;
+		padding:0;
+		height:100%;
+	}
+	#container {
+		min-height:100%;
+		position:relative;
+	}
+	#header {
+		background:#fbb5b8;
+		padding:10px;
+	}
+	#middle {
+		padding:10px;
+		padding-bottom:60px;	
+	}
+	#footer {
+		position:absolute;
+		bottom:0;
+		width:100%;
+		height:60px;		
+		background:#b5fbbd;
+	}

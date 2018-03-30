@@ -1,9 +1,0 @@
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-	crossorigin="anonymous">
-
-
-You are logged as: ${loggedInPersonalTrainer.name} ${loggedInPersonalTrainer.surname}
-<a href="${pageContext.request.contextPath}" role="button" class="btn btn-secondary btn-sm">MAIN</a>
-<a href="${pageContext.request.contextPath}/logout" role="button" class="btn btn-secondary btn-sm">Logout</a>

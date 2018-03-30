@@ -1,35 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+	pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+
+<%@ include file="jspf/head_config.jspf"%>
+
 </head>
 <body>
 
+	<!-- Sidebar -->
+	<div class="w3-sidebar w3-dark-grey w3-bar-block" style="width: 15%">
+		<h2 class="w3-bar-item">Menu</h2>
+		<a href="${pageContext.request.contextPath}"
+			class="w3-bar-item w3-button">MAIN</a> <a href="register"
+			class="w3-bar-item w3-button">Register</a> <a href="login"
+			class="w3-bar-item w3-button">Login</a>
+		<p class='error'>${msg}</p>
+	</div>
 
-	<form:form method="POST" modelAttribute="personalTrainerDTO">
-		
-		<div>
-			<form:input type="email" path="email" placeholder="E-mail" />
-			<form:errors path="email"></form:errors>
+	<!-- Page Content -->
+	<div style="margin-left: 15%">
+
+		<div class="w3-container w3-teal">
+			<h1>Personal Training Diary</h1>
 		</div>
-		<br>
-		<div>
-			<form:password path="password" placeholder="PASSWORD" />
-			<form:errors path="password"></form:errors>
+
+
+
+		<div class="w3-containe">
+
+
+			<div>
+				<h2>Login:</h2>
+			</div>
+			<form method="post" class="w3-container">
+				<p>
+					<input type="text" name="username" placeholder="E-mail" />
+				</p>
+				<p>
+					<input type="password" name="password" placeholder="Password" />
+				</p>
+				<p>
+					<input type="hidden" name="${_csrf.parameterName}"
+						value="${_csrf.token}" /> <input type="submit" value="Login" />
+				</p>
+
+			</form>
+
 		</div>
-		<br>
-		<div>
-			<input type="submit" />
-		</div>
-
-
-
-	</form:form>
-
-
+		<%@ include file="jspf/footer.jspf"%>
+	</div>
 </body>
 </html>
+
+
+
+
+
+

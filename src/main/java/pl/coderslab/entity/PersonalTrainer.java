@@ -1,9 +1,11 @@
 package pl.coderslab.entity;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -14,6 +16,7 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.jboss.aerogear.security.otp.api.Base32;
 import org.mindrot.jbcrypt.BCrypt;
 
 @Entity
@@ -35,10 +38,19 @@ public class PersonalTrainer {
 	@NotEmpty
 	private String password;
 
-	@OneToMany(mappedBy = "personalTrainer",fetch=FetchType.EAGER)
+	@ElementCollection // Also relation to new entity Role can be used
+	private Collection<String> roles;
+
+	@OneToMany(mappedBy = "personalTrainer", fetch = FetchType.EAGER)
 	private List<Client> clients = new ArrayList<>();
-	
+
+	private boolean enabled;
+	private String secret;
+
 	public PersonalTrainer() {
+		super();
+		this.secret = Base32.random();
+		this.enabled = true;
 	}
 
 	public PersonalTrainer(String name, String surname, int phoneNumber, String email, String password) {
@@ -93,9 +105,9 @@ public class PersonalTrainer {
 		return email;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+	 public void setEmail(String email) {
+	 this.email = email;
+	 }
 
 	public String getPassword() {
 		return password;
@@ -109,9 +121,6 @@ public class PersonalTrainer {
 		return BCrypt.checkpw(password, this.password);
 	}
 
-	
-	
-	
 	public List<Client> getClients() {
 		return clients;
 	}
@@ -119,4 +128,69 @@ public class PersonalTrainer {
 	public void setClients(List<Client> clients) {
 		this.clients = clients;
 	}
+	
+	
+	
+	
+	
+	public Collection<String> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Collection<String> roles) {
+		this.roles = roles;
+	}
+
+	public boolean isEnabled() {
+        return enabled;
+    }
+
+	public void setEnabled(final boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public String getSecret() {
+        return secret;
+    }
+
+    public void setSecret(String secret) {
+        this.secret = secret;
+    }
+
+
+	// spring security
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = (prime * result) + ((email == null) ? 0 : email.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(final Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		final PersonalTrainer trainer = (PersonalTrainer) obj;
+		if (!email.equals(trainer.email)) {
+			return false;
+		}
+		return true;
+	}
+
+//	 @Override
+//	    public String toString() {
+//	        final StringBuilder builder = new StringBuilder();
+//	        builder.append("User [id=").append(id).append(", email=").append(email).append(", password=").append(password).append(", enabled=").append(enabled)
+//	               .append(", secret=").append(secret).append(", roles=").append(roles).append("]");
+//	        return builder.toString();
+//	    }
+
 }

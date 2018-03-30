@@ -27,10 +27,14 @@ public class Client {
 	private String email;
 	@NotNull
 	private Integer phoneNumber;
+	@NotEmpty
 	private String goal;
+	@NotEmpty
 	private String gym;
+	@NotEmpty
 	private String[] daysOfTraining; 
-	
+	private int startTraining;
+	private int endTraining;
 	@ManyToOne
 	@JoinColumn(name="personalTrainer_id")
 	private	PersonalTrainer	personalTrainer;
@@ -95,6 +99,22 @@ public class Client {
 
 	public void setPersonalTrainer(PersonalTrainer personalTrainer) {
 		this.personalTrainer = personalTrainer;
+	}
+
+	public int getStartTraining() {
+		return startTraining;
+	}
+
+	public void setStartTraining(int startTraining) {
+		this.startTraining = startTraining;
+	}
+
+	public int getEndTraining() {
+		return endTraining;
+	}
+
+	public void setEndTraining(int endTraining) {
+		this.endTraining = endTraining;
 	}
 
 	
