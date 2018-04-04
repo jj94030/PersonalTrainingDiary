@@ -38,7 +38,7 @@
 
 		<div class="w3-container"></div>
 
-		<%@ include file="jspf/footer.jspf"%>
+		
 	</div>
 </body>
 </html>

@@ -70,8 +70,7 @@
 			</form:form>
 
 		</div>
-		<br><br><br><br><br><br><br> <%@ include
-										file="jspf/footer.jspf"%>
+
 	</div>
 </body>
 </html>

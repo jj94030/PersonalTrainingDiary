@@ -122,8 +122,8 @@
 				</div>
 			</form:form>
 		</div>
-		<br><br><br>
-		<%@ include file="jspf/footer.jspf"%>
+		
+		
 	</div>
 </body>
 </html>
