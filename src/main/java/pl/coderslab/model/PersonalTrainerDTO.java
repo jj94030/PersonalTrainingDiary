@@ -15,11 +15,13 @@ public class PersonalTrainerDTO {
 	@NotNull
 	@NotEmpty
 	private String password;
+	@NotEmpty
 	private String matchingPassword;
 	@NotEmpty
 	private String surname;
 	@NotNull
 	private Integer phoneNumber;
+	
 	public String getSurname() {
 		return surname;
 	}
