@@ -1,10 +1,9 @@
 # PersonalTrainingDiary
 
-<h2>FUNCTIONALITY</h2>
-Personal Training Diary is a web application designed for personal trainers.
+<h3>FUNCTIONALITY</h3>
+<h5>Personal Training Diary is a web application designed for personal trainers.</h5>
 <p>
-Functionality:
-
+<b>Functionality:</b>
 - register trainers,
 - login trainers,
 - add / modify / delete clients
@@ -15,8 +14,7 @@ Functionality:
 
 </p>
 
-Technologies:
-
+<b>Technologies:</b>
 - Java, 
 - MYSQL,
 - Hibernate,
