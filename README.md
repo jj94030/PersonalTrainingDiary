@@ -12,7 +12,7 @@
 - (in the future: register and login clients)
 - (in the future: booking training).
 
-</p>
+
 
 <b>Technologies:</b>
 - Java, 
@@ -23,3 +23,5 @@
 - Spring Data,
 - Spring Security,
 - MVC, (Maven Project).
+
+</p>
