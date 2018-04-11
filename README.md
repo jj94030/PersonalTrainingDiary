@@ -1,7 +1,6 @@
 # PersonalTrainingDiary
 
-<h3>FUNCTIONALITY</h3>
-<h5>Personal Training Diary is a web application designed for personal trainers.</h5>
+<h4>Personal Training Diary is a web application designed for personal trainers.</h4>
 <p>
 <b>Functionality:</b>
 
