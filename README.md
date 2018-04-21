@@ -9,6 +9,7 @@
 - add / modify / delete clients
 - show all clients
 
+- (in the future: find client by surname on the clients list)
 - (in the future: register and login clients)
 - (in the future: booking training).
 
